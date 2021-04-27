@@ -16,11 +16,12 @@ import fonts from '../styles/fonts';
 
 export function Confirmation() {
 
+
     const navigation = useNavigation();
 
-    function handleSubmit() {
+    function handleMoveOn() {
 
-        navigation.navigate('Welcome');
+        navigation.navigate('PlantSelect');
     }
 
 
@@ -41,8 +42,8 @@ export function Confirmation() {
 
                 <View style={styles.footer}>
                     <Button
-                    title = "Confirmar"
-                    onPress={handleSubmit}
+                        title="Confirmar"
+                        onPress={handleMoveOn}
                     />
                 </View>
             </View>
@@ -57,14 +58,14 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-around',
-        
+
     },
     content: {
         flex: 1,
-        width:'100%',
+        width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 30,        
+        padding: 30,
     },
     title: {
         fontSize: 22,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         paddingVertical: 10,
         color: colors.heading,
-        
+
     },
     emoji: {
         fontSize: 78
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     footer: {
         width: '100%',
         paddingHorizontal: 50,
-       marginTop:20
+        marginTop: 20
 
     }
 

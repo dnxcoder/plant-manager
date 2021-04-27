@@ -8,11 +8,13 @@ import {
     KeyboardAvoidingView,
     Platform,
     TouchableWithoutFeedback,
-    Keyboard
+    Keyboard,
+    Alert
 } from 'react-native';
 import colors from '../../assets_aula01/styles/colors';
 import fonts from '../styles/fonts';
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Button } from '../components/Button';
 
@@ -39,9 +41,17 @@ export function UserIdentification() {
         setName(value);
     }
 
-    function handleSubmit() {
+    async function handleSubmit() {
+        if (!name)
+            return Alert.alert('Me diz como chamar você 🤔');
 
-        navigation.navigate('Confirmation');
+
+        try {
+            await AsyncStorage.setItem('@plantmanager:user', name);
+            navigation.navigate('Confirmation');
+        } catch (err) {
+            Alert.alert('Não foi possível salvar o nome do usuário🤔')
+        }
     }
 
 
